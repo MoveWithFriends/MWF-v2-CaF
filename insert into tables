@@ -3,16 +3,16 @@ INSERT INTO `Users` VALUES
 ('Elle', 'Ligtenberg', '', 'e_ligtenberg@hotmail.com', 'e_ligtenberg', '0612345678', 'Vrouw', '1984-07-18', 'e_ligtenberg', 'man');
 
 INSERT INTO `Interest` VALUES
-('Boxen'),
+('Boksen'),
 ('Zwemmen'),
 ('Wandelen'),
 ('Fietsen'),
 ('Tennis');
 
 INSERT INTO `Likes` VALUES
-('jpaapen@gmail.com',     'Boxen'),  
+('jpaapen@gmail.com',     'Boksen'),  
 ('jpaapen@gmail.com',     'Tennis'),  
-('e_ligtenberg@hotmail.com',     'Boxen'), 
+('e_ligtenberg@hotmail.com',     'Boksen'), 
 ('e_ligtenberg@hotmail.com',   'Wandelen');
 
 INSERT INTO `Day` VALUES
