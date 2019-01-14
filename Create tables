@@ -1,0 +1,50 @@
+DROP VIEW IF EXISTS `Users`;
+DROP VIEW IF EXISTS `Interest`;
+DROP TABLE IF EXISTS `Day`;
+DROP TABLE IF EXISTS `Available`;
+DROP TABLE IF EXISTS `Timeslot`;
+DROP TABLE IF EXISTS `Interest`;
+
+
+CREATE TABLE `Users` (
+	`FirstName` VARCHAR (40),
+	`LastName` VARCHAR (40),
+	`Preposition` VARCHAR (10),
+	`email` VARCHAR (100) PRIMARY KEY,
+	`Username` VARCHAR (40),
+	`PhoneNumber` VARCHAR(20),
+	`Gender` VARCHAR (20),
+	`BirthDate` DATE,
+	`Password` VARCHAR (255),
+	`PreferredGender` VARCHAR (20)
+) ;
+
+CREATE TABLE `Interest` (
+	`Interest` VARCHAR (50) PRIMARY KEY
+) ;
+
+CREATE TABLE `Day` (
+	`Day` VARCHAR (12) PRIMARY KEY
+) ;
+
+CREATE TABLE `Timeslot` (
+	`Timeslot` VARCHAR (12) PRIMARY KEY
+) ;
+
+CREATE TABLE `Likes` (
+	`UserMail` VARCHAR (40),
+	`InterLike` VARCHAR (40),
+	PRIMARY KEY (`UserMail`, `InterLike`),
+	FOREIGN KEY (`UserMail`) REFERENCES `Users` (`email`),
+	FOREIGN KEY (`InterLike`) REFERENCES `Interest`(`Interest`)
+) ;
+
+CREATE TABLE `Available` (
+	`UserMail` VARCHAR (40),
+	`AvailableDay` VARCHAR(12),
+	`AvailableTimeslot` VARCHAR(12),
+	PRIMARY KEY (`UserMail`, `AvailableDay`, `AvailableTimeslot`),
+	FOREIGN KEY (`UserMail`) REFERENCES `Users` (`email`),
+	FOREIGN KEY (`AvailableDay`) REFERENCES `Day`(`Day`),
+	FOREIGN KEY (`AvailableTimeslot`) REFERENCES `Timeslot`(`Timeslot`)
+) ;
