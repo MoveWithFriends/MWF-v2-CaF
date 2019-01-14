@@ -1,0 +1,36 @@
+INSERT INTO `Users` VALUES
+('Jurgen', 'Paapen', '', 'jpaapen@gmail.com', 'jpaapen', '0626682388', 'Man', '1982-09-08', 'jpaapen', 'beide'),
+('Elle', 'Ligtenberg', '', 'e_ligtenberg@hotmail.com', 'e_ligtenberg', '0612345678', 'Vrouw', '1984-07-18', 'e_ligtenberg', 'man');
+
+INSERT INTO `Interest` VALUES
+('Boxen'),
+('Zwemmen'),
+('Wandelen'),
+('Fietsen'),
+('Tennis');
+
+INSERT INTO `Likes` VALUES
+('jpaapen@gmail.com',     'Boxen'),  
+('jpaapen@gmail.com',     'Tennis'),  
+('e_ligtenberg@hotmail.com',     'Boxen'), 
+('e_ligtenberg@hotmail.com',   'Wandelen');
+
+INSERT INTO `Day` VALUES
+('Zondag'),
+('Maandag'),
+('Dinsdag'),
+('Woensdag'),
+('Donderdag'),
+('Vrijdag'),
+('Zaterdag');
+
+INSERT INTO `Timeslot` VALUES
+('Morgen'),
+('Middag'),
+('Avond');
+
+INSERT INTO `Available` VALUES
+('jpaapen@gmail.com',     'Maandag',		'Avond'),  
+('jpaapen@gmail.com',     'Dinsdag',	'Morgen'),  
+('jpaapen@gmail.com',     'Dinsdag',		'Avond'), 
+('e_ligtenberg@hotmail.com',   'Dinsdag',		'Avond');
