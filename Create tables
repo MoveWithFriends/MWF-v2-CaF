@@ -13,7 +13,7 @@ CREATE TABLE `Users` (
 	`LastName` VARCHAR (40),
 	`Preposition` VARCHAR (10),
 	`email` VARCHAR (100) PRIMARY KEY,
-	`Username` VARCHAR (40),
+	`UserName` VARCHAR (40),
 	`PhoneNumber` VARCHAR(20),
 	`Gender` VARCHAR (20),
 	`BirthDate` DATE,
