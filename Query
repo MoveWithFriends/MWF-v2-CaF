@@ -1,0 +1,25 @@
+-- What pairs have the same Interest?
+CREATE VIEW SameInterest AS
+SELECT `A`.`UserMail` NameA, `B`.`UserMail` NameB, `A`.`InterLike`
+FROM `Likes` `A` 
+	JOIN `Likes` `B`
+	ON `A`.`InterLike` = `B`.`InterLike`
+	AND `A`.`UserMail` <> `B`.`UserMail`;
+	
+SELECT * FROM SameInterest ORDER BY `InterLike`
+
+-- What pairs are available at same Timeslot?
+CREATE VIEW SameTime AS
+SELECT `A`.`UserMail` NameA, `B`.`UserMail` NameB, `A`.`AvailableDay`, `A`.`AvailableTimeslot`
+FROM `Available` `A` 
+	JOIN `Available` `B`
+	ON `A`.`AvailableDay` = `B`.`AvailableDay`
+	AND `A`.`AvailableTimeslot` = `B`.`AvailableTimeslot`
+	AND `A`.`UserMail` <> `B`.`UserMail`;
+
+SELECT * FROM SameTime ORDER BY `AvailableDay`, `AvailableTimeslot`;
+
+-- Combined:
+SELECT * FROM `SameTime` JOIN `SameInterest` 
+ON `SameTime`.`NameA` = `SameInterest`.`NameA`
+AND `SameTime`.`NameB` = `SameInterest`.`NameB`;
