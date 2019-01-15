@@ -1,23 +1,23 @@
 -- What pairs have the same Interest?
 CREATE VIEW SameInterest AS
-SELECT `A`.`UserMail` NameA, `B`.`UserMail` NameB, `A`.`InterLike`
+SELECT `A`.`email` NameA, `B`.`email` NameB, `A`.`Interest`
 FROM `Likes` `A` 
 	JOIN `Likes` `B`
-	ON `A`.`InterLike` = `B`.`InterLike`
-	AND `A`.`UserMail` <> `B`.`UserMail`;
+	ON `A`.`Interest` = `B`.`Interest`
+	AND `A`.`email` <> `B`.`email`;
 	
-SELECT * FROM SameInterest ORDER BY `InterLike`
+SELECT * FROM SameInterest ORDER BY `Interest`;
 
--- What pairs are available at same Timeslot?
+-- What pairs are available at same Day and Timeslot?
 CREATE VIEW SameTime AS
-SELECT `A`.`UserMail` NameA, `B`.`UserMail` NameB, `A`.`AvailableDay`, `A`.`AvailableTimeslot`
+SELECT `A`.`email` NameA, `B`.`email` NameB, `A`.`Day`, `A`.`Timeslot`
 FROM `Available` `A` 
 	JOIN `Available` `B`
-	ON `A`.`AvailableDay` = `B`.`AvailableDay`
-	AND `A`.`AvailableTimeslot` = `B`.`AvailableTimeslot`
-	AND `A`.`UserMail` <> `B`.`UserMail`;
+	ON `A`.`Day` = `B`.`Day`
+	AND `A`.`Timeslot` = `B`.`Timeslot`
+	AND `A`.`email` <> `B`.`email`;
 
-SELECT * FROM SameTime ORDER BY `AvailableDay`, `AvailableTimeslot`;
+SELECT * FROM SameTime ORDER BY `Day`, `Timeslot`;
 
 -- Combined:
 SELECT * FROM `SameTime` JOIN `SameInterest` 
@@ -25,8 +25,8 @@ ON `SameTime`.`NameA` = `SameInterest`.`NameA`
 AND `SameTime`.`NameB` = `SameInterest`.`NameB`;
 
 -- Result for user by email:
-SELECT `SameTime`.`NameA`, `SameTime`.`NameB`, `AvailableDay`, `AvailableTimeslot`, `InterLike` FROM `SameTime` JOIN `SameInterest` 
+SELECT `SameTime`.`NameA`, `SameTime`.`NameB`, `Day`, `Timeslot`, `Interest` FROM `SameTime` JOIN `SameInterest` 
 ON `SameTime`.`NameA` = `SameInterest`.`NameA`
 AND `SameTime`.`NameB` = `SameInterest`.`NameB`
-WHERE `SameTime`.`NameA` = 'jpaapen@gmail.com' 
+WHERE `SameTime`.`NameA` = 'jurgen.paapen@student.avans.nl' 
 ORDER BY `SameTime`.`NameB`;
