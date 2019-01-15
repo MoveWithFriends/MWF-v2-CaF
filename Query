@@ -1,3 +1,6 @@
+DROP VIEW IF EXISTS `SameTime`;
+DROP VIEW IF EXISTS `SameInterest`;
+
 -- What pairs have the same Interest?
 CREATE VIEW SameInterest AS
 SELECT `A`.`email` NameA, `B`.`email` NameB, `A`.`Interest`
