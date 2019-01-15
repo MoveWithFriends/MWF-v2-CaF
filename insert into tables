@@ -1,19 +1,35 @@
 INSERT INTO `Users` VALUES
-('Jurgen', 'Paapen', '', 'jpaapen@gmail.com', 'jpaapen', '0626682388', 'Man', '1982-09-08', 'jpaapen', 'beide'),
-('Elle', 'Ligtenberg', '', 'e_ligtenberg@hotmail.com', 'e_ligtenberg', '0612345678', 'Vrouw', '1984-07-18', 'e_ligtenberg', 'man');
+('Jurgen','Paapen', '', 'jurgen.paapen@student.avans.nl', 'jurgen.paapen', '0626682388', 'man',  '1982-09-08', '$2y$10$nYnkQxec2qqPklKb9Jb.W.c8HpIlZ1uW4DavyqYjj2mrnoo7Xrc4K', 'man'),
+ ('Stijn', 'Pijman', '', 'stijn.pijman@student.avans.nl', 'stijn.pijman', '0626682499', 'man',  '1992-11-18', '$2y$10$U9RV8lS4mOngnFK1QXGume7RW6pSjVRMK/Ay4Fm10kYxQAl868PYW','vrouw'),
+('Joost', 'Oomen', '', 'joost.oomen@student.avans.nl', 'joost.oomen', '0613382569', 'man',  '1970-03-01', '$2y$10$QwaNvl4snwOE3gJbx9T3V.QtVoF5cLt0fhksZ00rXILtx.A94EtRm', 'beide'),
+ ('Nick', 'Sluiter', '', 'nick.sluiter@student.avans.nl', 'nick.sluiter', '0612345678', 'man',  '1987-12-31', '$2y$10$7o2F9FCevL.IKUEnPUAfnOS6a1QJmpYXui6f6QSkQnqzmyTbKQXxa','man'),
+ ('Anna', 'Schultzer', '', 'anna.schultzer@gmail.com', 'anna.Schultzer', '0634512466', 'vrouw',  '1996-11-11', '$2y$10$ZBSDy/w/eRgAfWCuaDhXVuAxlqczbVn504iAgcXUVHdpcGZqmsul.', 'beide'),
+ ('Frank', 'Rassen', '', 'frank.rassen@hotmail.com', 'frank.rassen', '0625797532', 'man',  '1987-02-10', '$2y$10$mv0hiTABRcjTTAemAZ27r.1f4doBC31PrHt3gpfNKMJOQ1H2xUK8C','man'),
+ ('Monique', 'Beer', 'de', 'monique.debeer@outlook.com', 'monique.debeer', '0694276935', 'vrouw',  '1984-07-18', '$2y$10$HbCncyh3JQSjT/vfShncA.grfsTCl8ZroCc.9GyhpY8Hpg5QcoFEC','vrouw'),
+ ('Trudie', 'Vries', 'de', 'trudie.devries@home.com', 'trudie.devries', '0612349836', 'vrouw',  '1959-04-28', '$2y$10$jkpwwJylIzxrl3YDQKJzFeHBgvbs8H0y9gWAFnUj0qoV5VXea/kJy','vrouw');
+
 
 INSERT INTO `Interest` VALUES
 ('Boksen'),
-('Zwemmen'),
+('Fitness'),
+('Hardlopen'),
+('Tennis'),
+('Squash'),
 ('Wandelen'),
-('Fietsen'),
-('Tennis');
+('Wielrennen'),
+('Zwemmen');
 
 INSERT INTO `Likes` VALUES
-('jpaapen@gmail.com',     'Boksen'),  
-('jpaapen@gmail.com',     'Tennis'),  
-('e_ligtenberg@hotmail.com',     'Boksen'), 
-('e_ligtenberg@hotmail.com',   'Wandelen');
+('jurgen.paapen@student.avans.nl', 'Boksen'),  
+('stijn.pijman@student.avans.nl', 'Boksen'),  
+('joost.oomen@student.avans.nl', 'Hardlopen'), 
+('joost.oomen@student.avans.nl', 'Wielrennen'),
+('nick.sluiter@student.avans.nl', 'Squash'),
+('anna.schultzer@gmail.com', 'Hardlopen'),
+('frank.rassen@hotmail.com', 'Boksen'),
+('monique.debeer@outlook.com', 'Fitness'),
+('monique.debeer@outlook.com', 'Zwemmen'),
+('trudie.devries@home.com', 'Wandelen');
 
 INSERT INTO `Day` VALUES
 ('Zondag'),
@@ -25,12 +41,33 @@ INSERT INTO `Day` VALUES
 ('Zaterdag');
 
 INSERT INTO `Timeslot` VALUES
-('Morgen'),
+('Ochtend'),
 ('Middag'),
 ('Avond');
 
 INSERT INTO `Available` VALUES
-('jpaapen@gmail.com',     'Maandag',		'Avond'),  
-('jpaapen@gmail.com',     'Dinsdag',	'Morgen'),  
-('jpaapen@gmail.com',     'Dinsdag',		'Avond'), 
-('e_ligtenberg@hotmail.com',   'Dinsdag',		'Avond');
+('jurgen.paapen@student.avans.nl', 'Woensdag', 'Avond'),  
+('jurgen.paapen@student.avans.nl', 'Vrijdag', 'Avond'),  
+('stijn.pijman@student.avans.nl', 'Maandag', 'Avond'), 
+('stijn.pijman@student.avans.nl', 'Donderdag', 'Middag'),
+('joost.oomen@student.avans.nl', 'Dinsdag',	'Middag'),
+('joost.oomen@student.avans.nl', 'Donderdag',	'Avond'),  
+('nick.sluiter@student.avans.nl', 'Maandag', 'Avond'),  
+('nick.sluiter@student.avans.nl', 'Dinsdag', 'Avond'), 
+('nick.sluiter@student.avans.nl', 'Woensdag', 'Avond'),
+('nick.sluiter@student.avans.nl', 'Donderdag', 'Avond'),
+('nick.sluiter@student.avans.nl', 'Vrijdag', 'Avond'),  
+('nick.sluiter@student.avans.nl', 'Zaterdag', 'Ochtend'),  
+('nick.sluiter@student.avans.nl', 'Zondag', 'Avond'), 
+('anna.schultzer@gmail.com', 'Maandag', 'Avond'),
+('anna.schultzer@gmail.com', 'Donderdag', 'Avond'),
+('frank.rassen@hotmail.com', 'Maandag',	'Avond'),  
+('frank.rassen@hotmail.com', 'Dinsdag',	'Avond'),  
+('frank.rassen@hotmail.com', 'Woensdag', 'Avond'), 
+('frank.rassen@hotmail.com', 'Donderdag', 'Avond'),
+('frank.rassen@hotmail.com', 'Vrijdag',	'Avond'),
+('frank.rassen@hotmail.com', 'Zaterdag', 'Avond'),  
+('frank.rassen@hotmail.com', 'Zondag',	'Avond'),  
+('monique.debeer@outlook.com', 'Woensdag', 'Ochtend'), 
+('trudie.devries@home.com', 'Woensdag', 'Ochtend'),
+('trudie.devries@home.com', 'Zaterdag', 'Ochtend');
