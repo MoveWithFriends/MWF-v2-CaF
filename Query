@@ -23,3 +23,10 @@ SELECT * FROM SameTime ORDER BY `AvailableDay`, `AvailableTimeslot`;
 SELECT * FROM `SameTime` JOIN `SameInterest` 
 ON `SameTime`.`NameA` = `SameInterest`.`NameA`
 AND `SameTime`.`NameB` = `SameInterest`.`NameB`;
+
+-- Result for user by email:
+SELECT `SameTime`.`NameA`, `SameTime`.`NameB`, `AvailableDay`, `AvailableTimeslot`, `InterLike` FROM `SameTime` JOIN `SameInterest` 
+ON `SameTime`.`NameA` = `SameInterest`.`NameA`
+AND `SameTime`.`NameB` = `SameInterest`.`NameB`
+WHERE `SameTime`.`NameA` = 'jpaapen@gmail.com' 
+ORDER BY `SameTime`.`NameB`;
