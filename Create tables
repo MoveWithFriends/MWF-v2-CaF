@@ -37,8 +37,12 @@ CREATE TABLE `Likes` (
 	`email` VARCHAR (100),
 	`Interest` VARCHAR (40),
 	PRIMARY KEY (`email`, `Interest`),
-	FOREIGN KEY (`email`) REFERENCES `Users` (`email`),
+	FOREIGN KEY (`email`) REFERENCES `Users` (`email`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
 	FOREIGN KEY (`Interest`) REFERENCES `Interest`(`Interest`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 ) ;
 
 CREATE TABLE `Available` (
@@ -46,7 +50,13 @@ CREATE TABLE `Available` (
 	`Day` VARCHAR(12),
 	`Timeslot` VARCHAR(12),
 	PRIMARY KEY (`email`, `Day`, `Timeslot`),
-	FOREIGN KEY (`email`) REFERENCES `Users` (`email`),
-	FOREIGN KEY (`Day`) REFERENCES `Day`(`Day`),
+	FOREIGN KEY (`email`) REFERENCES `Users` (`email`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	FOREIGN KEY (`Day`) REFERENCES `Day`(`Day`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
 	FOREIGN KEY (`Timeslot`) REFERENCES `Timeslot`(`Timeslot`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 ) ;
