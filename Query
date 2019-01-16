@@ -1,5 +1,7 @@
 DROP VIEW IF EXISTS `SameTime`;
 DROP VIEW IF EXISTS `SameInterest`;
+DROP VIEW IF EXISTS `GenderMatch`;
+DROP VIEW IF EXISTS `COMBINED`;
 
 -- What pairs have the same Interest?
 CREATE VIEW SameInterest AS
@@ -22,14 +24,37 @@ FROM `Available` `A`
 
 SELECT * FROM SameTime ORDER BY `Day`, `Timeslot`;
 
+-- What pairs can be matched based on Gender Preferences?
+CREATE VIEW GenderMatch
+AS SELECT `A`.`email` NameA, `B`.`email` NameB
+FROM `Users` `A` 
+	JOIN `Users` `B`
+    ON `A`.`email` < `B`.`email`
+	AND (`A`.`PreferredGender` = `B`.`Gender`
+    OR `A`.`PreferredGender` = 'beide')
+    AND (`B`.`PreferredGender` = `A`.`Gender`
+    OR `B`.`PreferredGender` = 'beide')
+;
+	
+SELECT * FROM GenderMatch ;
+
 -- Combined:
-SELECT * FROM `SameTime` JOIN `SameInterest` 
-ON `SameTime`.`NameA` = `SameInterest`.`NameA`
-AND `SameTime`.`NameB` = `SameInterest`.`NameB`;
+CREATE VIEW COMBINED
+AS SELECT `SameTime`.`NameA`, `SameTime`.`NameB`, `Day`, `Timeslot`, `Interest`
+FROM  `SameTime` 
+JOIN `SameInterest`
+	ON `SameTime`.`NameA` = `SameInterest`.`NameA`
+	AND `SameTime`.`NameB` = `SameInterest`.`NameB`
+JOIN `GenderMatch`
+	ON `SameTime`.`NameA` = `GenderMatch`.`NameA`
+	AND `SameTime`.`NameB` = `GenderMatch`.`NameB`
+    ;
+      
+SELECT * FROM COMBINED ;
 
 -- Result for user by email:
 SELECT `SameTime`.`NameA`, `SameTime`.`NameB`, `Day`, `Timeslot`, `Interest` FROM `SameTime` JOIN `SameInterest` 
 ON `SameTime`.`NameA` = `SameInterest`.`NameA`
 AND `SameTime`.`NameB` = `SameInterest`.`NameB`
 WHERE `SameTime`.`NameA` = 'jurgen.paapen@student.avans.nl' 
-ORDER BY `SameTime`.`NameB`;
+ORDER BY `SameTime`.`NameB`
