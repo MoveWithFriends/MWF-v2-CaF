@@ -25,8 +25,8 @@ FROM `Available` `A`
 SELECT * FROM SameTime ORDER BY `Day`, `Timeslot`;
 
 -- What pairs can be matched based on Gender Preferences?
-CREATE VIEW GenderMatch
-AS SELECT `A`.`email` NameA, `B`.`email` NameB
+CREATE VIEW GenderMatch AS
+SELECT `A`.`email` NameA, `B`.`email` NameB
 FROM `Users` `A` 
 	JOIN `Users` `B`
     ON `A`.`email` < `B`.`email`
@@ -39,8 +39,8 @@ FROM `Users` `A`
 SELECT * FROM GenderMatch ;
 
 -- Combined:
-CREATE VIEW COMBINED
-AS SELECT `SameTime`.`NameA`, `SameTime`.`NameB`, `Day`, `Timeslot`, `Interest`
+CREATE VIEW Combined AS
+SELECT `SameTime`.`NameA`, `SameTime`.`NameB`, `Day`, `Timeslot`, `Interest`
 FROM  `SameTime` 
 JOIN `SameInterest`
 	ON `SameTime`.`NameA` = `SameInterest`.`NameA`
