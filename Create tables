@@ -44,17 +44,17 @@ CREATE TABLE `Likes` (
 ) ;
 
 CREATE TABLE `Available` (
-	`email` VARCHAR (100),
-	`Day` VARCHAR(12),
-	`Timeslot` VARCHAR(12),
-	PRIMARY KEY (`email`, `Day`, `Timeslot`),
-	FOREIGN KEY (`email`) REFERENCES `Users` (`email`)
+	`id_User` INT (10),
+	`id_Day` INT(10),
+	`id_Timeslot` INT(10),
+	PRIMARY KEY (`id_User`, `id_Day`, `id_Timeslot`),
+	FOREIGN KEY (`id_User`) REFERENCES `users` (`id`)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
-	FOREIGN KEY (`Day`) REFERENCES `Day`(`Day`)
+	FOREIGN KEY (`id_Day`) REFERENCES `Day`(`id`)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
-	FOREIGN KEY (`Timeslot`) REFERENCES `Timeslot`(`Timeslot`)
+	FOREIGN KEY (`id_Timeslot`) REFERENCES `Timeslot`(`id`)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 ) ;
